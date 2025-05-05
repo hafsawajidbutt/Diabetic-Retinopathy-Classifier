@@ -5,6 +5,7 @@ import matplotlib.pyplot as plt
 from skimage import exposure, filters
 from pathlib import Path
 from tensorflow.keras.preprocessing.image import ImageDataGenerator
+from skimage.filters import frangi, hessian, sato
 
 def preprocess_fundus_image(image_path, output_size=(224, 224)):
     # Read image
@@ -42,7 +43,7 @@ def preprocess_fundus_image(image_path, output_size=(224, 224)):
     blurred = cv2.GaussianBlur(enhanced, (5, 5), 0)
     
     # Apply vessel enhancement filter (using Hessian matrix)
-    from skimage.filters import frangi, hessian, sato
+    
     vessel_filter = frangi(blurred)
     
     # Normalize to [0, 255]
@@ -97,7 +98,16 @@ def create_augmentation_generator():
     return datagen
 
 if __name__ == "__main__":
-    test_paths = ["./content/Diabetic_Balanced_Data/test/0", "./content/Diabetic_Balanced_Data/test/1", "./content/Diabetic_Balanced_Data/test/2", "./content/Diabetic_Balanced_Data/test/3", "./content/Diabetic_Balanced_Data/test/4"]
-    train_paths = ["./content/Diabetic_Balanced_Data/train/0", "./content/Diabetic_Balanced_Data/train/1", "./content/Diabetic_Balanced_Data/train/2", "./content/Diabetic_Balanced_Data/train/3", "./content/Diabetic_Balanced_Data/train/4"]
-    val_paths = ["./content/Diabetic_Balanced_Data/val/0", "./content/Diabetic_Balanced_Data/val/1", "./content/Diabetic_Balanced_Data/val/2", "./content/Diabetic_Balanced_Data/val/3", "./content/Diabetic_Balanced_Data/val/4"]
-
+    base_input_dir = "./content/Diabetic_Balanced_Data"
+    base_output_dir = "./content/Preprocessed_Diabetic_Data"
+    
+    # Process each class (0-4) in each dataset split (test, train, val)
+    for split in ["train", "val"]:
+        for class_num in range(5):  # 0-4 classes
+            if(split == "train" and class_num < 4):\
+                pass
+            else:
+                input_path = f"{base_input_dir}/{split}/{class_num}"
+                output_path = f"{base_output_dir}/{split}/{class_num}"
+                print(f"Processing {input_path} -> {output_path}")
+                preprocess_dataset(input_path, output_path)

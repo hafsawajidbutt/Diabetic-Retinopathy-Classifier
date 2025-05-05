@@ -1,2 +1,4 @@
 content/
 model/
+env/
+best_dr_model.h5
