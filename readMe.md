@@ -1,6 +1,6 @@
 # 🩺 Diabetic Retinopathy Detection  
 
-Model: https://drive.google.com/file/d/1TDeVDD5sUQ1sJlSt2tDmTmE12fxANQOG/view?usp=sharing
+Model: https://drive.google.com/file/d/1ysfQJVA6I5qY0KQcrApYDFd50mpQ6dqU/view?usp=drive_link
 
 This project is an AI-powered application designed to classify **retinal fundus images**
 into different **Diabetic Retinopathy (DR) severity levels**. The model processes the uploaded
@@ -60,3 +60,4 @@ images of retinal fundus. The dataset is split into training and testing sets wi
 0.001 and a batch size of 32. The model is trained for 5 epochs with
 early stopping. The model achieves a **test accuracy of 0.49** We could get more accuracy but 
 due to time constraint we only get this acuracy 
+Dataset Link: https://www.kaggle.com/datasets/kushagratandon12/diabetic-retinopathy-balanced/data
