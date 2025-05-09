@@ -1,4 +1,4 @@
-# 🩺 Diabetic Retinopathy Detection  
+#  Diabetic Retinopathy Detection  
 
 Model: https://drive.google.com/file/d/1ysfQJVA6I5qY0KQcrApYDFd50mpQ6dqU/view?usp=drive_link
 
@@ -8,13 +8,13 @@ images and predicts the severity of DR using deep learning. The frontend is buil
 **Streamlit** for an interactive and user-friendly experience.
 
 ---
-👨‍💻 Authors
+ Authors
 Team Name - Gangster Bunty Butt Waffle Eater Cococola Happy Man
 Developer1 - Muhammad Baasil
 Developer2 - Hafsa Wajid Butt
 Developer3 - Abdullah Qaiser
 ---
-## 🚀 Features  
+##  Features  
 ✅ Upload retinal images for analysis  
 ✅ AI model predicts the DR severity level  
 ✅ Results displayed as a **percentage bar** and **pie chart**  
@@ -33,7 +33,7 @@ pip install opencv-python
 pip install Pillow
 ---
 
-## 📈 Usage Instructions
+## Usage Instructions
 1. Clone the repository to your local machine.
 2. Install the required packages using pip.
 3. Download the model from the provided link and put it into the model folder.
@@ -43,7 +43,7 @@ pip install Pillow
 percentage bar and a pie chart.
 ---
 
-## 📊 Model Architecture
+##  Model Architecture
 The model is a **Convolutional Neural Network (CNN)** with the following architecture:
 
 4 convolutional layers (32, 64, 128, 128 filters) with ReLU activation.
@@ -53,7 +53,7 @@ A dropout layer (0.5) to prevent overfitting.
 A final output layer with 5 neurons and softmax activation for classification.
 
 ---
-## 📊 Model Training
+## Model Training
 The model is trained on the **DRISHTI-GS** dataset, which contains 5000
 images of retinal fundus. The dataset is split into training and testing sets with a ratio of
 70:30. The model is trained using the **ADABoost** with a learning rate of
