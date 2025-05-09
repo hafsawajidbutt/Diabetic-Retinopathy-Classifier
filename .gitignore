@@ -2,3 +2,4 @@ content/
 model/
 env/
 best_dr_model.h5
+diabetic_retinopathy_model.h5
