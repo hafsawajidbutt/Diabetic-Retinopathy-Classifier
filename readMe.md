@@ -9,28 +9,30 @@ images and predicts the severity of DR using deep learning. The frontend is buil
 
 ---
  Authors
-Team Name - Gangster Bunty Butt Waffle Eater Cococola Happy Man
-Developer1 - Muhammad Baasil
-Developer2 - Hafsa Wajid Butt
-Developer3 - Abdullah Qaiser
+Team Name - Gangster Bunty Butt Waffle Eater Cococola Happy Man  
+Developer1 - Muhammad Baasil  
+Developer2 - Hafsa Wajid Butt  
+Developer3 - Abdullah Qaiser  
 ---
 ##  Features  
-✅ Upload retinal images for analysis  
-✅ AI model predicts the DR severity level  
-✅ Results displayed as a **percentage bar** and **pie chart**  
+- Upload retinal images for analysis  
+- AI model predicts the DR severity level  
+- Results displayed as a **percentage bar** and **pie chart**  
 
-things to Install before RUN
+---
+Things to Install before RUN
 
-pip install Streamlit
-pip install tensorflow
-pip install numpy
-pip install matplotlib
-pip install pandas
-pip install torch
-pip install torchvision
-pip install scikit-learn
-pip install opencv-python
-pip install Pillow
+pip install Streamlit  
+pip install tensorflow  
+pip install numpy  
+pip install matplotlib  
+pip install pandas  
+pip install torch  
+pip install torchvision  
+pip install scikit-learn  
+pip install opencv-python  
+pip install Pillow  
+
 ---
 
 ## Usage Instructions
@@ -43,14 +45,40 @@ pip install Pillow
 percentage bar and a pie chart.
 ---
 
+## Preprocessing Pipeline
+
+The `preprocessing.py` script performs several steps to enhance fundus images for better feature extraction:
+
+1. Grayscale conversion
+2. Circular Region of Interest (ROI) isolation using masking
+3. CLAHE (Contrast Limited Adaptive Histogram Equalization) for local contrast enhancement
+4. Gaussian blurring for denoising
+5. Frangi vessel enhancement for highlighting blood vessels
+6. Weighted combination of enhanced image and vessel map
+7. Resizing to 224x224
+8. Normalization to `[0, 1]` and converting to 3-channel RGB
+
 ##  Model Architecture
 The model is a **Convolutional Neural Network (CNN)** with the following architecture:
+Input Layer:  
+- Accepts images of shape
 
-4 convolutional layers (32, 64, 128, 128 filters) with ReLU activation.
-4 max pooling layers (2x2).
-A fully connected dense layer with 512 neurons and ReLU activation.
-A dropout layer (0.5) to prevent overfitting.
-A final output layer with 5 neurons and softmax activation for classification.
+- 4 convolutional layers (32, 64, 128, 128 filters) with ReLU activation.
+- Batch normalization and dropout regularization
+- 4 max pooling layers (2x2).  
+- A fully connected dense layer with 512 neurons and ReLU activation.
+- Fully connected classifier:  
+  - Dense(512) → Dropout → Dense(5) with softmax for multiclass classification
+- A dropout layer (0.5) to prevent overfitting.  
+- A final output layer with 5 neurons and softmax activation for classification.
+
+Hyperparameters:
+- Optimizer: Adam (lr=0.001)
+- Loss: Categorical Crossentropy
+- Metrics: Accuracy
+- Epochs: 20
+- Batch size: 32
+  
 
 ---
 ## Model Training
