@@ -40,30 +40,8 @@ st.markdown(
 st.markdown("<h1 style='color: #C599B6; text-align: center;'>Diabetic Retinopathy Detection</h1>", unsafe_allow_html=True)
 
 # Check model paths
-MODEL_PATH = "./model/diabetic_retinopathy_model.h5"
-TFLITE_PATH = MODEL_PATH.replace('.h5', '.tflite')
-
-if not os.path.exists(MODEL_PATH):
-    st.error(f"Model file not found at {MODEL_PATH}. Please check the path and ensure the model file exists.")
-    st.info(f"Current working directory: {os.getcwd()}")
-    
-    # Check if the model directory exists
-    model_dir = os.path.dirname(MODEL_PATH)
-    if model_dir and not os.path.exists(model_dir):
-        st.warning(f"Model directory '{model_dir}' does not exist. Creating it now.")
-        try:
-            os.makedirs(model_dir, exist_ok=True)
-            st.success(f"Created directory: {model_dir}")
-        except Exception as e:
-            st.error(f"Failed to create directory: {e}")
-    
-    # List files in current directory for debugging
-    st.write("Files in current directory:", os.listdir("."))
-    
-    if model_dir and os.path.exists(model_dir):
-        st.write(f"Files in model directory:", os.listdir(model_dir))
-    
-    st.stop()
+#MODEL_PATH = "./model/diabetic_retinopathy_model.h5"
+#TFLITE_PATH = MODEL_PATH.replace('.h5', '.tflite')
 
 # Add model type selection with TFLite as default
 model_type = "TFLite"
