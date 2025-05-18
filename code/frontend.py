@@ -4,7 +4,7 @@ import os
 import time
 from PIL import Image
 import matplotlib.pyplot as plt
-from use_dr_model import predict_image, load_pretrained_model, convert_to_tflite
+#from use_dr_model import predict_image, load_pretrained_model, convert_to_tflite
 import random
 
 # Set page configuration
